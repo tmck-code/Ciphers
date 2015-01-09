@@ -5,7 +5,7 @@
  * @version 1
  *
  * Creation Date: Wednesday, September 24 2014, 11:54 
- * Last Modified:     Friday, January 09 2015, 12:38
+ * Last Modified:     Friday, January 09 2015, 13:01
  * 
  * Class Description: This is program that decodes the
  *       Atbash cipher, a simple substitution where a letter's
@@ -45,10 +45,10 @@ public class Atbash
     public static String decrypt( String message ) {
         StringBuilder decoded = new StringBuilder();
 
-        for( char c : message.toLowerCase().toCharArray()) {
+        for( char c : message.toUpperCase().toCharArray()) {
             if(Character.isLetter(c)) {
                 int newChar = ('Z' - c) + 'A';
-                decoded.append(Character.toUpperCase((char) newChar));
+                decoded.append((char) newChar);
             } else {
                 decoded.append(c);
             }
