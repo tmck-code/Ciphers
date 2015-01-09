@@ -5,7 +5,7 @@
  * @version 1
  *
  * Creation Date: Wednesday, September 24 2014, 11:54 
- * Last Modified: Friday, January 09 2015, 11:16
+ * Last Modified:     Friday, January 09 2015, 12:38
  * 
  * Class Description: This is program that decodes the
  *       Atbash cipher, a simple substitution where a letter's
@@ -18,14 +18,6 @@ import java.util.Scanner;
 
 public class Atbash
 {
-    /** A char array containing the alphabet in reverse order */
-    //This is not the most efficient way of doing this, but it
-    //is the most human-readable
-    public static char[] AtbashOrder = { 'z', 'y', 'x', 'w', 'v', 'u', 't', 's',
-        'r', 'q', 'p'/, 'o', 'n', 'm', 'l', 'k',
-        'j', 'i', 'h', 'g', 'f', 'e', 'd', 'c',
-        'b', 'a' };
-
     /**
      * Main method, simply accepts input from the user for decoding,
      * then prints the result to screen
@@ -50,15 +42,15 @@ public class Atbash
      * @param message The string to decrypt
      * @return The decrypted string in upper case
      */
-    public String decrypt( String message ) {
+    public static String decrypt( String message ) {
         StringBuilder decoded = new StringBuilder();
 
-        for( char i : message.toLowerCase().toCharArray()) {
-            if(Character.isLetter(i)) {
-                char c =  AtbashOrder[(i - 'a')];
-                decoded.append(Character.toUpperCase(c));
+        for( char c : message.toLowerCase().toCharArray()) {
+            if(Character.isLetter(c)) {
+                int newChar = ('Z' - c) + 'A';
+                decoded.append(Character.toUpperCase((char) newChar));
             } else {
-                decoded.append(i);
+                decoded.append(c);
             }
         }
         return decoded.toString();
