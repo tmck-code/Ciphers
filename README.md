@@ -1,2 +1,2 @@
-# Ciphers
-Repository for programs that decipher simple text ciphers such as the Atbash, Caesar, Viginere etc.
+This is the Cipher repository for tmck-code.net. 
+Contains Java implementations for the Atbash & Caeser ciphers.
