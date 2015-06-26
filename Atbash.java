@@ -1,10 +1,9 @@
 /*
  * Class Name:    Atbash
- *
  * @author Thomas McKeesick
  * @version 1
  *
- * Creation Date: Wednesday, September 24 2014, 11:54 
+ * Creation Date:     Wednesday, September 24 2014, 11:54 
  * Last Modified:     Friday, January 09 2015, 13:01
  * 
  * Class Description: This is program that decodes the
@@ -21,32 +20,27 @@ public class Atbash
     /**
      * Main method, simply accepts input from the user for decoding,
      * then prints the result to screen
-     *
      * @param args The string to decode
      */
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("********************************\n" +
-                           "Welcome to the Atbash decoder!\n" +
-                           "********************************");
-        System.out.print("Enter a message to decode: ");
+        System.out.println("Welcome to the Atbash decoder!\n" +
+                           "Enter a message to decode: ");
         String message = keyboard.nextLine();
         System.out.println("\nDECRYPTED: " + decrypt(message).toUpperCase());
     }
 
     /**
      * Public static method to decrypt an Atbash-encoded message. This
-     * method still adds non-alphabet characters to the final string,
-     * in case the message is encoded with grammatical characters
-     *
+     * method preserves non-alphabet characters in the final string
      * @param message The string to decrypt
      * @return The decrypted string in upper case
      */
-    public static String decrypt( String message ) {
+    public static String decrypt( String message )
+    {
         StringBuilder decoded = new StringBuilder();
-
-        for( char c : message.toUpperCase().toCharArray()) {
-            if(Character.isLetter(c)) {
+        for (char c : message.toCharArray()) {
+            if (Character.isLetter(c)) {
                 int newChar = ('Z' - c) + 'A';
                 decoded.append((char) newChar);
             } else {
